@@ -384,7 +384,7 @@ export default function Home() {
             Designed with intention. Built with curiosity.
           </p>
 
-          <span>© {new Date().getFullYear()} Darryl Salamera</span>
+          <span>© 2026 Darryl Salamera</span>
         </div>
       </footer>
     </main>
