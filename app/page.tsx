@@ -1,69 +1,392 @@
 import Image from "next/image";
+import Link from "next/link";
+
+
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Flutter",
+  "Dart",
+  "Git",
+  "GitHub",
+  "SQL",
+];
+
+
+type Project = {
+  number: string;
+  category: string;
+  title: string;
+  description: string;
+  technology: string[];
+  image: string;
+  link?: string;
+  featured?: boolean;
+};
+
+const projects: Project[] = [
+  {
+    number: "01",
+    category: "CAPSTONE PROJECT · INDUSTRIAL MANILA FURNITURE",
+    title: "TopCraft",
+    description:
+      "An AI-assisted furniture manufacturing system designed for Industrial Manila Furniture. The project aims to improve furniture production workflows through multi-view product visualization and scrap material optimization.",
+    technology: ["React", "PostgreSQL", "Flutter", "Dart", "AI Integration"],
+    image: "/topcraft.png",
+    link: "https://industrialmanila-furniture.com/",
+  },
+  {
+    number: "02",
+    category: "SCHOOL PROJECT",
+    title: "Liboria – E-Library System",
+    description:
+      "A digital library platform developed for a school project, providing users with an accessible way to explore and browse library resources.",
+    technology: ["Flutter", "Dart", "Vercel"],
+    image: "/liboria.png",
+    link: "https://liboria.vercel.app/home",
+  },
+  {
+    number: "03",
+    category: "SCHOOL PROJECT",
+    title: "School Project Two",
+    description:
+      "Add a brief explanation of the project, its features, and your contribution.",
+    technology: ["Technology 1", "Technology 2"],
+    image: "/projects/project-three.png",
+  },
+];
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main>
+      {/* NAVIGATION */}
+      <header className="navbar">
+        <div className="nav-container">
+          <a href="#home" className="nav-logo">
+            DARRYL SALAMERA<span>.</span>
+          </a>
+
+          <nav className="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="hero section-container" id="home">
+        <div className="hero-content">
+          <p className="hero-eyebrow">
+            INFORMATION TECHNOLOGY · OJT PORTFOLIO
+          </p>
+
+          <p className="hero-intro">Hello, I'm</p>
+
+          <h1 className="hero-title">
+            Darryl Salamera<span>.</span>
+            <br />
+            <span className="hero-title-accent">
+              Aspiring Developer
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="hero-description">
+            I’m an aspiring IT professional who enjoys turning ideas into practical solutions through technology. I value continuous learning, critical thinking, and attention to detail, and I’m always willing to take on challenges that help me grow. As I begin my professional journey, I’m eager to apply my knowledge, learn from experienced professionals, and contribute positively to a team through dedication, adaptability, and a strong willingness to improve.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#projects" className="btn-primary">
+              Explore my work <span>↗</span>
+            </a>
+
+            <a href="#contact" className="btn-secondary">
+              Get in touch
+            </a>
+          </div>
+
+          <p className="hero-note">
+            Curious mind. Thoughtful work. Continuous growth.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+
+        <div className="hero-visual">
+          <div className="profile-panel">
+            <div className="profile-panel-top">
+              <span>PERSONAL PORTFOLIO</span>
+              <span>01 / 04</span>
+            </div>
+
+            <div className="profile-photo">
+  <Image
+    src="/profile.jpg"
+    alt="Portrait of Your Name"
+    fill
+    priority
+    className="profile-image"
+    sizes="(max-width: 850px) 90vw, 480px"
+  />
+</div>
+
+            <div className="profile-panel-bottom">
+              <div>
+                <span className="profile-label">
+                  FIELD OF INTEREST
+                </span>
+                <h2>Technology &amp; Creativity</h2>
+              </div>
+              <span className="profile-panel-number">01</span>
+            </div>
+          </div>
+
+          <p className="profile-caption">
+            A little about my journey in technology
+          </p>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section className="section section-container" id="about">
+        <div className="section-heading">
+          <p className="section-eyebrow">01 — INTRODUCTION</p>
+          <h2>About <span>Me</span></h2>
+        </div>
+
+        <div className="about-content">
+          <div className="about-side-label">
+            <span>GET TO KNOW ME</span>
+          </div>
+
+          <div className="about-text">
+            <p className="about-lead">
+              Learning, creating, and growing through technology.
+            </p>
+
+            <p>
+              I am an Information Technology student interested
+              in software development, web technologies, and
+              problem-solving. I enjoy exploring new tools and
+              applying what I learn through hands-on projects.
+            </p>
+
+            <p>
+              As I prepare for my On-the-Job Training, I look
+              forward to gaining practical experience, improving
+              my technical abilities, and learning from
+              professionals in the IT industry.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section className="section skills-section" id="skills">
+        <div className="section-container">
+          <div className="section-heading">
+            <p className="section-eyebrow">02 — WHAT I WORK WITH</p>
+            <h2>Skills &amp; <span>Technologies</span></h2>
+            <p className="section-description">
+              Technologies and tools I have explored through
+              coursework, practice, and personal projects.
+            </p>
+          </div>
+
+          <div className="skills-grid">
+            {skills.map((skill, index) => (
+              <div className="skill-item" key={skill}>
+                <span className="skill-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span>{skill}</span>
+                <span className="skill-arrow">↗</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section className="section section-container" id="projects">
+        <div className="section-heading">
+          <p className="section-eyebrow">03 — SELECTED WORK</p>
+          <h2>Projects &amp; <span>Experiences</span></h2>
+          <p className="section-description">
+            A collection of academic projects and practical
+            experiences that reflect my learning journey.
+          </p>
+        </div>
+
+  
+<div className="projects-grid">
+  {projects.map((project) => {
+    const cardContent = (
+      <>
+        <div className="project-top">
+          <span>{project.category}</span>
+          <span>{project.number}</span>
+        </div>
+
+        <div className="project-preview">
+          <Image
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            fill
+            sizes="(max-width: 850px) 100vw, 50vw"
+            className="project-image"
+          />
+        </div>
+
+        <div className="project-info">
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+
+          <div className="project-tags">
+            {project.technology.map((tech) => (
+              <span key={tech}>{tech}</span>
+            ))}
+          </div>
+
+          {project.link && (
+            <span className="project-visit">
+              Visit project ↗
+            </span>
+          )}
+        </div>
+      </>
+    );
+
+    return project.link ? (
+      <Link
+        href={project.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`project-card ${
+          project.featured ? "featured-project" : ""
+        }`}
+        key={project.number}
+      >
+        {cardContent}
+      </Link>
+    ) : (
+      <article
+        className={`project-card ${
+          project.featured ? "featured-project" : ""
+        }`}
+        key={project.number}
+      >
+        {cardContent}
+      </article>
+    );
+  })}
+</div>
+
+      </section>
+
+      {/* EDUCATION */}
+      <section className="section education-section" id="education">
+        <div className="section-container">
+          <div className="section-heading">
+            <p className="section-eyebrow">04 — MY BACKGROUND</p>
+            <h2>Education &amp; <span>Learning</span></h2>
+          </div>
+
+          <div className="education-card">
+            <div className="education-date">
+              <span>EDUCATION</span>
+              <span>2023 — PRESENT</span>
+            </div>
+
+            <div className="education-details">
+              <h3>Bachelor of Science in Information Technology specialized in Mobile and Web Application (MWA)</h3>
+              <p className="education-school">
+                National University | Mall of Asia
+              </p>
+              <p>
+                GXJJ+89C, Coral Way, Pasay City, Metro Manila
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="section section-container contact-section" id="contact">
+        <div className="contact-content">
+          <p className="section-eyebrow">05 — LET'S CONNECT</p>
+
+          <h2>
+            Let's create something
+            <br />
+            <span>meaningful together.</span>
+          </h2>
+
+          <p>
+            I am open to learning opportunities, professional
+            connections, and OJT opportunities where I can
+            contribute and grow.
+          </p>
+
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:your.email@example.com"
+            className="btn-primary"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Send me an email <span>↗</span>
           </a>
         </div>
-      </main>
-    </div>
+
+        <div className="contact-details">
+          <div>
+            <span>EMAIL</span>
+            <a href="mailto:your.email@example.com">
+              adrian.salamera@gmail.com
+            </a>
+          </div>
+
+          <div>
+            <span>GITHUB</span>
+            <a
+              href="https://github.com/Kyahade"
+              target="_blank"
+              rel="noreferrer"
+            >
+              github.com/Kyahade ↗
+            </a>
+          </div>
+
+          <div>
+            <span>LINKEDIN</span>
+            <a
+              href="www.linkedin.com/in/kyah-ade-4a9195274"
+              target="_blank"
+              rel="noreferrer"
+            >
+              www.linkedin.com/in/kyah-ade-4a9195274
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <div className="section-container footer-content">
+          <a href="#home" className="nav-logo">
+            Darryl Salamera<span>.</span>
+          </a>
+
+          <p>
+            Designed with intention. Built with curiosity.
+          </p>
+
+          <span>© {new Date().getFullYear()} Darryl Salamera</span>
+        </div>
+      </footer>
+    </main>
   );
 }
