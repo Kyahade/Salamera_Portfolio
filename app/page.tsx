@@ -363,7 +363,7 @@ export default function Home() {
           <div>
             <span>LINKEDIN</span>
             <a
-              href="www.linkedin.com/in/kyah-ade-4a9195274"
+              href="https://www.linkedin.com/in/kyah-ade-4a9195274"
               target="_blank"
               rel="noreferrer"
             >
