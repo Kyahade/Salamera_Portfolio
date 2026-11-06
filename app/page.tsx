@@ -126,7 +126,7 @@ export default function Home() {
 
             <div className="profile-photo">
   <Image
-    src="/profile.jpg"
+    src="/profile.png"
     alt="Portrait of Your Name"
     fill
     priority
