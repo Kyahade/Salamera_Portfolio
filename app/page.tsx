@@ -50,14 +50,14 @@ const projects: Project[] = [
     link: "https://liboria.vercel.app/home",
   },
   {
-    number: "03",
-    category: "SCHOOL PROJECT",
-    title: "School Project Two",
-    description:
-      "Add a brief explanation of the project, its features, and your contribution.",
-    technology: ["Technology 1", "Technology 2"],
-    image: "/projects/project-three.png",
-  },
+  number: "03",
+  category: "ONGOING ORGANIZATIONAL PROJECT · NU MOA",
+  title: "NU MOA Student Election System",
+  description:
+    "An ongoing project developed for the Commission on Student Elections (CSE) of National University – MOA. The platform is designed exclusively for NU MOA students, providing a digital platform for accessing election information, viewing candidates, and participating in the student electoral process.",
+  technology: ["Next.js", "PostgreSQL", "TypeScript", "Tailwind CSS"],
+  image: "/numoacse.jpg",
+},
 ];
 
 
